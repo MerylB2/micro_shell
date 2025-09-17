@@ -107,8 +107,8 @@ void ft_exec(char **argv, int i, char **envp)
                 ft_fatal();
             if (close(fd[0]) == -1 || close(fd[1]) == -1)
                 ft_fatal();
-            if (waitpid(pid, NULL, 0) == -1)
-                ft_fatal();
+            while (waitpid(-1, NULL, WUNTRACED) != -1)
+                ;
             ft_exec(argv + j + 1, i - j - 1, envp);  // Récursion pour la suite
         }
     }
@@ -125,8 +125,8 @@ void ft_exec(char **argv, int i, char **envp)
         }
         else  // Processus parent: attendre la fin du fils
         {
-            if (waitpid(pid, NULL, 0) == -1)
-                ft_fatal();
+            while (waitpid(-1, NULL, WUNTRACED) != -1)
+                ;
         }
     }
 }
