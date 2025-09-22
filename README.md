@@ -5,7 +5,7 @@ Mini-shell capable d'exécuter des commandes avec pipes (`|`) et séparateurs (`
 ## Compilation
 
 ```bash
-gcc -Wall -Wextra -Werror microshell.c -o microshell
+gcc -Wall -Wextra -Werror bon_microshell.c -o microshell
 ```
 
 ## Tests
