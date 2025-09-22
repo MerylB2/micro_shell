@@ -6,7 +6,7 @@
 /*   By: cmetee-b <cmetee-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:36:46 by cmetee-b          #+#    #+#             */
-/*   Updated: 2025/09/18 13:22:11 by cmetee-b         ###   ########.fr       */
+/*   Updated: 2025/09/19 08:10:43 by cmetee-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int main(int ac, char **av, char **env)
                 ft_exec(av, i, tmp_fd, env);
             }
             else{
+                dup2(fd[0], STDIN_FILENO);
                 close(fd[1]);
-                close(tmp_fd);
+                close(fd[0]);
                 tmp_fd = fd[0];
             }
         }
